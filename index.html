@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro y Login - Alejandro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <div class="contenedor-principal">
+        
+        <!-- SECCIÓN REGISTRO -->
+        <form id="Formulario-registro" novalidate>
+            <h2>Crea tu cuenta</h2>
+            <div class="Datos-entrada">
+                <label for="Nombreusuario">Nombre usuario</label>
+                <input type="text" id="Nombreusuario" placeholder="Ej: Jhorman vera" required minlength="4">
+            </div>
+            <div class="Datos-entrada">
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" placeholder="tu@correo.com" required>
+            </div>
+            <div class="Datos-entrada" style="position: relative;">
+                <label for="contraseña">Contraseña</label>
+                <input type="password" id="contraseña" required pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}">
+                <span class="ojo" onclick="togglePass('contraseña', this)">👁️</span>
+                <div class="nivel-seguridad" id="nivelSeguridad"></div>
+            </div>
+            <div class="Datos-entrada" style="position: relative;">
+                <label for="repetir-contraseña">Repetir Contraseña</label>
+                <input type="password" id="repetir-contraseña" required>
+                <span class="ojo" onclick="togglePass('repetir-contraseña', this)">👁️</span>
+            </div>
+            <button type="submit">Registrarme</button>
+            <p style="text-align: center;">¿Ya tienes cuenta? <a href="#" id="irLogin">Inicia sesión</a></p>
+        </form>
+
+        <!-- SECCIÓN LOGIN (Oculta al inicio) -->
+        <div id="seccion-login" style="display: none; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px;">
+            <h2>Iniciar Sesión</h2>
+            <div class="Datos-entrada">
+                <label for="login-usuario">Usuario</label>
+                <input type="text" id="login-usuario" placeholder="Nombre exacto">
+            </div>
+            <div class="Datos-entrada" style="position: relative;">
+                <label for="login-pass">Contraseña</label>
+                <input type="password" id="login-pass">
+                <span class="ojo" onclick="togglePass('login-pass', this)">👁️</span>
+            </div>
+            <button type="button" id="btnEntrar">Entrar</button>
+            <p style="text-align: center;">¿No tienes cuenta? <a href="#" id="irRegistro">Regístrate</a></p>
+        </div>
+
+    </div>
+
+    <div id="toast" class="toast">¡Registro exitoso! 🚀</div>
+</body>
+</html>

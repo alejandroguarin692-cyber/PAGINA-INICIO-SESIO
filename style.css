@@ -1,0 +1,115 @@
+:root {
+    --color-principal: hsl(246, 75%, 70%);
+    --color-error: #ff4d4d;
+    --color-exitoso: #00ff88;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-blur: blur(15px);
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(45deg, #4158D0, #C850C0, #FFCC70);
+    background-size: 300% 300%;
+    animation: moverFondo 10s infinite alternate;
+}
+
+@keyframes moverFondo {
+    from { background-position: 0% 50%; }
+    to { background-position: 100% 50%; }
+}
+
+.contenedor-principal {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    padding: 2.5rem;
+    border-radius: 20px;
+    width: 350px;
+    color: white;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    animation: entrada 0.6s ease-out;
+}
+
+@keyframes entrada {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.Datos-entrada { margin-bottom: 1.2rem; position: relative; }
+
+input {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 5px;
+    color: white;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+input:focus { outline: none; border-color: var(--color-principal); background: rgba(255,255,255,0.1); }
+
+.ojo {
+    position: absolute;
+    right: 10px;
+    top: 27px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    user-select: none;
+}
+
+.mensaje-error {
+    color: var(--color-error);
+    font-size: 0.75rem;
+    display: none;
+    margin-top: 5px;
+}
+
+/* Validación interactiva CSS */
+input:invalid:not(:placeholder-shown) ~ .mensaje-error { display: block; }
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: var(--color-principal);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover { transform: scale(1.02); filter: brightness(1.1); }
+
+.nivel-seguridad { height: 4px; width: 0%; margin-top: 5px; transition: 0.5s; border-radius: 2px; }
+
+.toast {
+    position: fixed;
+    top: 20px;
+    right: -400px;
+    background: var(--color-exitoso);
+    color: #1a1a1a;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: right 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.toast.mostrar { right: 20px; }
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+}
+.vibrar { animation: shake 0.3s linear; }

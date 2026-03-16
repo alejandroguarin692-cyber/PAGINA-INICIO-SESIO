@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mostrar Foto</title>
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    /* IMAGEN DE FONDO */
+    background-image: url("img/WhatsApp Image 2026-03-16 at 11.16.01 AM.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    font-family: Arial, sans-serif;
+}
+
+/* contenedor */
+.container{
+    text-align:center;
+    backdrop-filter: blur(5px);
+}
+
+/* botón elegante */
+button{
+    padding:15px 40px;
+    font-size:10px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(45deg,#00c6ff,#0072ff);
+    color:white;
+    cursor:pointer;
+    transition:all 0.3s ease;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+button:hover{
+    transform:scale(1.1);
+    box-shadow:0 15px 35px rgba(0,0,0,0.4);
+}
+
+/* imagen oculta */
+img{
+    margin-top:30px;
+    width:400px;
+    max-width:90%;
+    border-radius:15px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.5);
+    opacity:0;
+    transform:scale(0.8);
+    transition:all 0.6s ease;
+}
+
+/* clase que muestra la imagen */
+img.show{
+    opacity:1;
+    transform:scale(1);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<button onclick="mostrarFoto()">Mostrar Foto</button>
+
+<br><br>
+
+<img id="foto" src="img/MONO.gif">
+
+</div>
+
+<script>
+
+function mostrarFoto(){
+    document.getElementById("foto").classList.toggle("show");
+}
+
+</script>
+
+</body>
+</html>
